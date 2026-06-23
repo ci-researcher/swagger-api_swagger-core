@@ -1,8 +1,7 @@
 name: Build Test Deploy 1.5
 
 on:
-  push:
-    branches: [ "1.5" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -10,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ 11, 17 ]
+        java:
+          - 21
+          - 25
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v6
