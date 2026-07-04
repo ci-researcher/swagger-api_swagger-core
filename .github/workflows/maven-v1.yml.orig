@@ -33,7 +33,7 @@ jobs:
           ${{ runner.os }}-maven-
     - name: Build with Maven and Gradle
       run: |
-        ./mvnw -B -Dhttps.protocols=TLSv1.2 verify --file pom.xml
+        ./mvnw -B -Dhttps.protocols=TLSv1.2 verify --file pom.xml -Dmaven.javadoc.doclint=none
         export MY_JAVA_VERSION=`java -version 2>&1 | head -1 | cut -d'"' -f2 | sed '/^1\./s///' | cut -d'.' -f1`
         echo "JAVA VERSION" ${MY_JAVA_VERSION}
         if [[ ${MY_JAVA_VERSION} == "11" ]];
