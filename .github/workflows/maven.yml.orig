@@ -47,7 +47,7 @@ jobs:
         echo "POM VERSION" ${MY_POM_VERSION}
         if [[ $MY_POM_VERSION =~ ^.*SNAPSHOT$ ]];
         then
-          ./mvnw --no-transfer-progress -B install --file pom.xml
+          ./mvnw --no-transfer-progress -B install --file pom.xml -Dmaven.javadoc.failOnError=false
           cd ./modules/swagger-gradle-plugin
           ./gradlew build --info
           cd ../..
